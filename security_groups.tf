@@ -75,6 +75,16 @@ resource "aws_security_group_rule" "elasticsearch_client_ingress" {
   source_security_group_id = "${aws_security_group.elasticsearch_client.id}"
 }
 
+resource "aws_security_group_rule" "elasticsearch_client_ingress_bycidr" {
+  type      = "ingress"
+  from_port = 9200
+  to_port   = 9200
+  protocol  = "tcp"
+  cidr_blocks = ["${split(",", var.esclient_cidr_blocks)}"]
+
+  security_group_id        = "${aws_security_group.elasticsearch_cluster.id}"
+}
+
 resource "aws_security_group_rule" "elasticsearch_client_egress" {
   type      = "egress"
   from_port = 9200

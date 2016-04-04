@@ -10,6 +10,7 @@
 |asg_max_size|The maximum instance count for the Autoscaling Group. It is recommended that this value and asg_min_size are the same.|No|3|aws_autoscaling_group.elasticsearch|
 |asg_min_size|The minimum instance count for the Autoscaling Group. It is recommended that this value and asg_max_size are the same.|No|3|aws_autoscaling_group.elasticsearch|
 |default_security_group_id|The optional ID of a security group that will override the default security group.|No|""|aws_launch_configuration.elasticsearch|
+|esclient_cidr_blocks|Comma separated list of cidr blocks that allow client access to the ES cluster.|No|127.0.0.1/32|aws_security_group_rule.elasticsearch_client_ingress_bycidr|
 |health_check_grace_period|Time after instance comes into service before checking health.|No|300|aws_autoscaling_group.elasticsearch|
 |name|The base name applied to resources.|No|elasticsearch|aws_autoscaling_group.elasticsearch, aws_elb.elasticsearch, aws_iam_instance_profile.elasticsearch, aws_iam_role.elasticsearch, aws_iam_role_policy.elasticsearch, aws_launch_configuration.elasticsearch, aws_route53_record.elasticsearch, aws_security_group.default, aws_security_group.elasticsearch_client, aws_security_group.elasticsearch_cluster|
 |user_data|The user data to provide when launching the instance.|No|""|aws_launch_configuration.elasticsearch|
