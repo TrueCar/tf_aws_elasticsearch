@@ -65,6 +65,12 @@ variable "default_security_group_id" {
   default     = ""
 }
 
+variable "esclient_cidr_blocks" {
+  description = "Comma separated list of cidr blocks that allow client access to the ES cluster."
+  type        = "string"
+  default     = "127.0.0.1/32"
+}
+
 variable "health_check_grace_period" {
   description = "Time after instance comes into service before checking health."
   type        = "string"
